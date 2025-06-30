@@ -6,49 +6,64 @@
   <title>KAJUL STORE</title>
   <style>
     body {
-      background: black;
-      color: white;
-      font-family: sans-serif;
+      background: #000;
+      color: #0ff;
+      font-family: Arial, sans-serif;
       text-align: center;
-      padding: 20px;
+      padding: 30px 15px;
+    }
+    img {
+      width: 140px;
+      height: 140px;
+      border-radius: 100px;
+      margin: 15px auto;
+      display: block;
+      border: 3px solid #0ff;
+      box-shadow: 0 0 15px #0ff;
+    }
+    h2 {
+      margin-bottom: 30px;
+      font-size: 24px;
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff;
     }
     .button {
       display: block;
-      margin: 10px auto;
+      margin: 12px auto;
       padding: 15px;
-      background: #222;
-      color: white;
-      border-radius: 8px;
+      background: #111;
+      color: #0ff;
+      border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
       width: 80%;
-      max-width: 300px;
-      border: 1px solid #444;
+      max-width: 320px;
+      border: 2px solid #0ff;
+      box-shadow: 0 0 10px #0ff;
+      transition: 0.2s;
     }
     .button:hover {
-      background: #333;
-    }
-    img {
-      width: 150px;
-      height: 150px;
-      border-radius: 100px;
-      margin: 20px auto;
-      display: block;
+      background: #222;
+      box-shadow: 0 0 20px #0ff;
     }
     .music-btn {
-      margin-top: 15px;
-      background: #111;
-      color: cyan;
-      padding: 10px 15px;
+      margin-top: 20px;
+      background: #000;
+      color: #0ff;
+      border: 2px solid #0ff;
+      padding: 10px 20px;
       border-radius: 10px;
-      border: none;
-      cursor: pointer;
       font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #0ff;
+    }
+    .music-btn:hover {
+      background: #111;
     }
     small {
-      color: #aaa;
+      color: #888;
       display: block;
-      margin-top: 20px;
+      margin-top: 30px;
     }
   </style>
 </head>
@@ -64,7 +79,7 @@
 
   <button class="music-btn" onclick="playMusic()">🎵 Play Musik</button>
 
-  <small>© KAJUL STORE</small>
+  <small>© 2025 KAJUL STORE</small>
 
   <audio id="audioPlayer">
     <source src="https://files.catbox.moe/d7vvgz.mp3" type="audio/mpeg">
