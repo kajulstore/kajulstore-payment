@@ -16,14 +16,14 @@
       display: block;
       margin: 10px auto;
       padding: 15px;
-      background: #111;
+      background: #222;
       color: white;
-      border-radius: 10px;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
       width: 80%;
       max-width: 300px;
-      box-shadow: 0 0 10px cyan;
+      border: 1px solid #444;
     }
     .button:hover {
       background: #333;
@@ -34,7 +34,16 @@
       border-radius: 100px;
       margin: 20px auto;
       display: block;
-      border: 2px solid cyan;
+    }
+    .music-btn {
+      margin-top: 15px;
+      background: #111;
+      color: cyan;
+      padding: 10px 15px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
     }
     small {
       color: #aaa;
@@ -46,16 +55,18 @@
 <body>
 
   <img src="https://files.catbox.moe/jm6aps.jpg" alt="Profil" />
-  <h2>👋 Hi, I'm KAJUL STORE</h2>
+  <h2>KAJUL STORE</h2>
 
-  <a class="button" href="https://link.dana.id/transfer/088221335855" target="_blank">🔵 DANA</a>
-  <a class="button" onclick="copyToClipboard('088221335855')">🟣 OVO (Salin Nomor)</a>
-  <a class="button" onclick="copyToClipboard('088221335855')">🟢 GoPay (Salin Nomor)</a>
-  <a class="button" href="https://files.catbox.moe/air5v0.jpg" target="_blank">🖼️ QRIS</a>
+  <a class="button" href="https://link.dana.id/transfer/088221335855" target="_blank">DANA</a>
+  <a class="button" onclick="copyToClipboard('088221335855')">OVO</a>
+  <a class="button" onclick="copyToClipboard('088221335855')">GOPAY</a>
+  <a class="button" href="https://files.catbox.moe/air5v0.jpg" target="_blank">QRIS</a>
 
-  <small>© Powered by KAJUL STORE</small>
+  <button class="music-btn" onclick="playMusic()">🎵 Play Musik</button>
 
-  <audio autoplay loop>
+  <small>© KAJUL STORE</small>
+
+  <audio id="audioPlayer">
     <source src="https://files.catbox.moe/d7vvgz.mp3" type="audio/mpeg">
   </audio>
 
@@ -63,6 +74,9 @@
     function copyToClipboard(text) {
       navigator.clipboard.writeText(text);
       alert("Disalin: " + text);
+    }
+    function playMusic() {
+      document.getElementById("audioPlayer").play();
     }
   </script>
 </body>
