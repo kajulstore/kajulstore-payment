@@ -5,12 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KAJUL STORE</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       background: #000;
       color: #0ff;
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 30px 15px;
+      overflow: hidden;
+    }
+    canvas#particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .content {
+      position: relative;
+      z-index: 2;
     }
     img {
       width: 140px;
@@ -69,6 +83,9 @@
 </head>
 <body>
 
+<canvas id="particles"></canvas>
+
+<div class="content">
   <img src="https://files.catbox.moe/jm6aps.jpg" alt="Profil" />
   <h2>KAJUL STORE</h2>
 
@@ -80,19 +97,56 @@
   <button class="music-btn" onclick="playMusic()">🎵 Play Musik</button>
 
   <small>© 2025 KAJUL STORE</small>
+</div>
 
-  <audio id="audioPlayer">
-    <source src="https://files.catbox.moe/d7vvgz.mp3" type="audio/mpeg">
-  </audio>
+<audio id="audioPlayer">
+  <source src="https://files.catbox.moe/d7vvgz.mp3" type="audio/mpeg">
+</audio>
 
-  <script>
-    function copyToClipboard(text) {
-      navigator.clipboard.writeText(text);
-      alert("Disalin: " + text);
+<script>
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text);
+    alert("Disalin: " + text);
+  }
+  function playMusic() {
+    document.getElementById("audioPlayer").play();
+  }
+
+  // Particle animation
+  const canvas = document.getElementById("particles");
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let particles = [];
+  for (let i = 0; i < 50; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: Math.random() * 2 + 1,
+      speedX: (Math.random() - 0.5) * 1.5,
+      speedY: (Math.random() - 0.5) * 1.5
+    });
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let p of particles) {
+      p.x += p.speedX;
+      p.y += p.speedY;
+      if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = "#0ff";
+      ctx.fill();
     }
-    function playMusic() {
-      document.getElementById("audioPlayer").play();
-    }
-  </script>
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+
 </body>
 </html>
