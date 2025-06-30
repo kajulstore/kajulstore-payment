@@ -21,6 +21,9 @@
       border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
+      width: 80%;
+      max-width: 300px;
+      box-shadow: 0 0 10px cyan;
     }
     .button:hover {
       background: #333;
@@ -33,20 +36,34 @@
       display: block;
       border: 2px solid cyan;
     }
+    small {
+      color: #aaa;
+      display: block;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
+
   <img src="https://files.catbox.moe/jm6aps.jpg" alt="Profil" />
   <h2>👋 Hi, I'm KAJUL STORE</h2>
 
-  <a class="button" href="https://link.dana.id/transfer/088221335855">DANA</a>
-  <a class="button" href="https://www.ovo.id/088221335855">OVO</a>
-  <a class="button" href="https://gopay.co.id/088221335855">GOPAY</a>
-  <a class="button" href="https://files.catbox.moe/air5v0.jpg" target="_blank">QRIS</a>
+  <a class="button" href="https://link.dana.id/transfer/088221335855" target="_blank">🔵 DANA</a>
+  <a class="button" onclick="copyToClipboard('088221335855')">🟣 OVO (Salin Nomor)</a>
+  <a class="button" onclick="copyToClipboard('088221335855')">🟢 GoPay (Salin Nomor)</a>
+  <a class="button" href="https://files.catbox.moe/air5v0.jpg" target="_blank">🖼️ QRIS</a>
 
-  <p>© Powered by KAJUL STORE</p>
+  <small>© Powered by KAJUL STORE</small>
+
   <audio autoplay loop>
-    <source src="https://files.catbox.moe/builtin.mp3" type="audio/mpeg">
+    <source src="https://files.catbox.moe/d7vvgz.mp3" type="audio/mpeg">
   </audio>
+
+  <script>
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text);
+      alert("Disalin: " + text);
+    }
+  </script>
 </body>
 </html>
